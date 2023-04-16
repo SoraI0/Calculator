@@ -84,6 +84,10 @@ body {
 		}
 	}
 
+	.button:focus {
+		outline: 0;
+	}
+
 	.button:hover {
 		transform: scale(1.05);
 	}

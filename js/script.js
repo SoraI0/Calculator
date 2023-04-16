@@ -5,11 +5,62 @@ let clear = document.querySelector('.operators__clear')
 let backspace = document.querySelector('.operators__backspace')
 let equals = document.querySelector('.operators__equals')
 
-console.log(eval('10 * 0'));
 
 numberKeys.forEach(element => {
 	element.addEventListener('click', function () {
-		display.value += element.innerHTML;
+		console.log(isNaN(+display.value[display.value.length - 1]));
+
+		// if (element.innerHTML === '+' && display.value[display.value.length - 1] === '+') {
+		// 	console.log('true');
+		// } else {
+		// 	display.value += element.innerHTML;
+		// }
+		// if (display.value === '' || Number.isFinite(+display.value[display.value.length - 1]) === Number.isFinite(+element.innerHTML)) {
+		// 	display.value += element.innerHTML;
+		// }
+		// else 
+
+
+
+		if (isNaN(+element.innerHTML) && isNaN(+display.value[display.value.length - 1])) {
+			if (element.innerHTML === '(' && (display.value === '' || display.value[display.value.length - 1] === '(' || isNaN(display.value[display.value.length - 1]))) {
+				if (!isNaN(+display.value[display.value.length - 1]) && element.innerHTML === '(') {
+					display.value += '*' + element.innerHTML;
+				} else {
+					display.value += element.innerHTML;
+
+				}
+			}
+			if ((!isNaN(element.innerHTML) && display.value[display.value.length - 1] === ')') || display.value[display.value.length - 1] === ')' && isNaN(element.innerHTML)) {
+				display.value += element.innerHTML;
+			}
+
+			if (element.innerHTML === ')' && display.value[display.value.length - 1] === ')') {
+				display.value += element.innerHTML;
+			}
+			if (element.innerHTML === '-' && display.value[display.value.length - 1] === '-') {
+
+			}
+			if (element.innerHTML === '-' && display.value === '') {
+				display.value += element.innerHTML;
+			}
+		}
+		else {
+			display.value += element.innerHTML;
+		}
+
+
+
+
+
+
+
+		// if () {
+
+		// }
+		// else {
+		// 	display.value += element.innerHTML;
+		// }
 	})
 })
 
@@ -25,13 +76,15 @@ backspace.addEventListener('click', function () {
 
 equals.addEventListener('click', function () {
 	try {
-		display.value = eval(display.value);
+		if (isNaN(eval(display.value))) {
+			display.value = '';
+			display.placeholder = 'Помилка'
+		} else {
+			display.value = eval(display.value);
+		}
 	}
 	catch {
 		display.value = '';
 		display.placeholder = 'Помилка'
 	}
 })
-
-
-
