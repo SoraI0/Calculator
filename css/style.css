@@ -40,7 +40,8 @@ body {
 
 body {
   font-size: 30px;
-  background-color: rgb(48, 48, 48);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(2, 25, 10) 100%, rgb(0, 212, 255) 100%);
 }
 body .wrapper {
   display: flex;
