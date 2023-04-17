@@ -4,7 +4,8 @@
 body {
 	
 	font-size: 30px;
-	background-color:rgb(48, 48, 48);
+	background: rgb(2,0,36);
+	background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(2,25,10,1) 100%, rgba(0,212,255,1) 100%);
 	.wrapper {
 		display: flex;
 		justify-content: center;
@@ -15,6 +16,7 @@ body {
 			max-width: 400px;
 			display: inline-block;
 			background-color:rgb(0, 0, 0);
+			box-shadow: 5px 5px 5px rgb(3, 3, 3);
 			border-radius: 20px;
 			overflow: hidden;
 			
@@ -84,10 +86,6 @@ body {
 		}
 	}
 
-	.button:focus {
-		outline: 0;
-	}
-
 	.button:hover {
 		transform: scale(1.05);
 	}
@@ -137,4 +135,3 @@ body {
 	
 	}
 }
-
