@@ -10,21 +10,16 @@ numberKeys.forEach(element => {
 	element.addEventListener('click', function () {
 		console.log(!isNaN(+display.value[display.value.length - 1]) && element.innerHTML === '(');
 
-		if (element.innerHTML === '-' && display.value[display.value.length - 1] != '-') {
+		if (element.innerHTML === '-' && display.value[display.value.length - 1] != '-' || element.innerHTML === '/' && display.value[display.value.length - 1] === ')') {
 			display.value += element.innerHTML;
 		}
-		if (element.innerHTML === '/' && display.value[display.value.length - 1] === ')') {
-			display.value += element.innerHTML;
-		}
-		if (!isNaN(+display.value[display.value.length - 1]) && element.innerHTML === '(') {
+		if (!isNaN(+display.value[display.value.length - 1]) && element.innerHTML === '(' || display.value[display.value.length - 1] === ')' && element.innerHTML === '(') {
 			display.value += '*';
 		}
-
 		if (display.value[display.value.length - 1] === ')' && !isNaN(+element.innerHTML)) {
 			console.log('*');
 			display.value += '*';
 		}
-
 		if (isNaN(display.value[display.value.length - 1]) && isNaN(element.innerHTML)) {
 			if (element.innerHTML === '(' || element.innerHTML === ')') {
 
@@ -34,9 +29,6 @@ numberKeys.forEach(element => {
 		else {
 			display.value += element.innerHTML;
 		}
-
-
-
 	})
 })
 
